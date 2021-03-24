@@ -1,0 +1,17 @@
+<div class="card" style="width: 300px;">
+  <img class="w-100"  [src]="vinyl.imageUrl" alt="Album photo of {{vinyl.title}}">
+  <div class="card-body">
+    <div class="card-title">
+      <h3>{{vinyl.title}}<br>
+        <small>par {{vinyl.artiste}}</small>
+      </h3>
+    </div>
+    <div class="card-text">
+      <h5 class="bold">{{vinyl.releaseDate}}</h5>
+    </div>
+    <app-counting-buttons [releaseDate]="vinyl.releaseDate" (releaseDateChange)="changeReleaseDate($event)" ></app-counting-buttons>
+    <div class="d-flex flex-column justify-content-center">
+      <button class="btn btn-primary mt-2" (click)="changeArtiste()" >Modifier</button>
+    </div>
+  </div>
+</div>
