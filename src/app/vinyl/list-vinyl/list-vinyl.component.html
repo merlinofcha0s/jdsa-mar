@@ -1,0 +1,6 @@
+<div class="d-flex flex-wrap justify-content-between">
+  <div *ngFor="let vinylObj of vinyls; index as i; first as first; last as last; even as even; odd as odd">
+    <app-single-vinyl [vinyl]="vinylObj"></app-single-vinyl>
+    <div>{{i}}-{{first}}-{{last}}-{{even}}-{{odd}}</div>
+  </div>
+</div>
