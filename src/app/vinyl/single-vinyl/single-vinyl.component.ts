@@ -11,6 +11,8 @@ export class SingleVinylComponent implements OnInit {
   @Input()
   public vinyl: Vinyl;
 
+  public isEditMode = false;
+
   constructor() {
   }
 
@@ -21,7 +23,12 @@ export class SingleVinylComponent implements OnInit {
     this.vinyl.artiste = 'King of pop';
   }
 
-  changeReleaseDate(newReleaseDate: number): void {
-    this.vinyl.releaseDate = newReleaseDate;
+  changeReleaseDate(newReleaseDate: Date): void {
+   this.vinyl.releaseDate = new Date(newReleaseDate);
   }
+
+  switchEditMode(): void {
+    this.isEditMode = !this.isEditMode;
+  }
+
 }

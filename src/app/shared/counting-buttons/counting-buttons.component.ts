@@ -8,10 +8,10 @@ import {Component, Input, OnInit, EventEmitter, Output} from '@angular/core';
 export class CountingButtonsComponent implements OnInit {
 
   @Input()
-  private releaseDate: number;
+  private releaseDate: Date;
 
   @Output()
-  private releaseDateChange = new EventEmitter<number>();
+  private releaseDateChange = new EventEmitter<Date>();
 
   constructor() {
   }
@@ -20,12 +20,14 @@ export class CountingButtonsComponent implements OnInit {
   }
 
   incValue(): void {
-    this.releaseDate++;
+    const year = this.releaseDate.getFullYear();
+    this.releaseDate.setFullYear(year + 1);
     this.releaseDateChange.emit(this.releaseDate);
   }
 
   decValue(): void {
-    this.releaseDate--;
+    const year = this.releaseDate.getFullYear();
+    this.releaseDate.setFullYear(year - 1);
     this.releaseDateChange.emit(this.releaseDate);
   }
 }

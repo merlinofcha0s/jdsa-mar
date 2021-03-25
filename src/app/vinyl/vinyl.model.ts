@@ -3,5 +3,5 @@ export interface Vinyl {
   title?: string;
   imageUrl?: string;
   artiste?: string;
-  releaseDate?: number;
+  releaseDate?: Date;
 }

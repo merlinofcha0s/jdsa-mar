@@ -1,4 +1,4 @@
-<div class="card" style="width: 300px;">
+<div class="card" style="width: 300px;" [class.editMode]="isEditMode">
   <img class="w-100"  [src]="vinyl.imageUrl" alt="Album photo of {{vinyl.title}}">
   <div class="card-body">
     <div class="card-title">
@@ -7,11 +7,14 @@
       </h3>
     </div>
     <div class="card-text">
-      <h5 class="bold">{{vinyl.releaseDate}}</h5>
+      <h5 class="bold">{{vinyl.releaseDate | date: 'yyyy'}}</h5>
     </div>
-    <app-counting-buttons [releaseDate]="vinyl.releaseDate" (releaseDateChange)="changeReleaseDate($event)"></app-counting-buttons>
+    <app-counting-buttons *ngIf="isEditMode"
+                          [releaseDate]="vinyl.releaseDate "
+                          (releaseDateChange)="changeReleaseDate($event)">
+    </app-counting-buttons>
     <div class="d-flex flex-column justify-content-center">
-      <button class="btn btn-primary mt-2" (click)="changeArtiste()" >Modifier</button>
+      <button class="btn btn-primary mt-2" (click)="switchEditMode()" >Modifier</button>
     </div>
   </div>
 </div>
